@@ -15,7 +15,7 @@ http
       }
     } catch (e) {
       res.writeHead(500);
-      res.write("500");
+      res.write("500 " + e);
       res.end();
     }
   })
