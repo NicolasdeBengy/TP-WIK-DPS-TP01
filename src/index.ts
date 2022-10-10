@@ -6,7 +6,7 @@ http
       var url = req.url;
       if (url === "/ping") {
         res.writeHead(200, req.rawHeaders);
-        console.log(req.headers);
+        res.write(req.headers);
         res.end();
       } else {
         res.writeHead(404);
