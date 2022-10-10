@@ -9,7 +9,7 @@ http
         console.log(req.headers);
         res.end();
       } else {
-        res.writeHead(404, { "Content-Type": "err" });
+        res.writeHead(404);
         res.write("404");
         res.end();
       }
