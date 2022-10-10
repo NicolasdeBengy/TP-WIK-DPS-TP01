@@ -2,14 +2,20 @@ import http from "http";
 
 http
   .createServer(function (req, res) {
-    var url = req.url;
-    if (url === "/ping") {
-      res.writeHead(200, req.rawHeaders);
-      console.log(req.headers);
-      res.end();
-    } else {
-      res.writeHead(404, { "Content-Type": "err" });
-      res.write("404");
+    try {
+      var url = req.url;
+      if (url === "/ping") {
+        res.writeHead(200, req.rawHeaders);
+        console.log(req.headers);
+        res.end();
+      } else {
+        res.writeHead(404, { "Content-Type": "err" });
+        res.write("404");
+        res.end();
+      }
+    } catch (e) {
+      res.writeHead(500);
+      res.write("500");
       res.end();
     }
   })
